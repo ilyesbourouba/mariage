@@ -9,7 +9,7 @@
                   Laisser vide -> le formulaire bascule sur WhatsApp.
        ------------------------------------------------------------------ */
     var WHATSAPP = "213698095449";
-    var FORMSPREE = "";
+    var FORMSPREE = "https://formspree.io/f/xzebendd";
 
     /* --- date de l'événement : 20 octobre 2026, 16h00, heure d'Algérie --- */
     var EVENT_START = "20261020T150000Z"; // 16:00 UTC+1
@@ -177,6 +177,20 @@
                 return;
             }
 
+            /* Récapitulatif lisible + sujet, pour l'e-mail Formspree. */
+            if (data.reponse === "Avec regret, je ne pourrai pas venir") {
+                fd.delete("adultes");
+                delete data.adultes;
+            }
+            fd.set(
+                "_subject",
+                "RSVP mariage — " +
+                    (data.famille || data.nom) +
+                    " — " +
+                    (data.adultes ? data.adultes + " adulte(s)" : "ne vient pas"),
+            );
+            fd.set("recapitulatif", buildMessage(data));
+
             var btn = form.querySelector('button[type="submit"]');
             if (btn) {
                 btn.disabled = true;
@@ -249,7 +263,8 @@
             function (el) {
                 layers.push({
                     el: el,
-                    speed: parseFloat(el.getAttribute("data-dz-parallax")) || 0.1,
+                    speed:
+                        parseFloat(el.getAttribute("data-dz-parallax")) || 0.1,
                 });
             },
         );
@@ -282,7 +297,9 @@
                 if (r.bottom < -240 || r.top > vh + 240) continue;
                 var centred = r.top + r.height / 2 - vh / 2;
                 l.el.style.transform =
-                    "translate3d(0," + (-centred * l.speed).toFixed(1) + "px,0)";
+                    "translate3d(0," +
+                    (-centred * l.speed).toFixed(1) +
+                    "px,0)";
             }
 
             /* remplissage de la frise + points allumés */
