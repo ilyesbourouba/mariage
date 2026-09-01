@@ -1,0 +1,630 @@
+/* ==========================================================================
+   Algerian wedding sections — hand-authored, responsive.
+   Replaces the fixed-position Tilda artboards for: programme, lieu,
+   bon à savoir, and RSVP. Namespaced under .dz-*.
+   ========================================================================== */
+
+:root {
+    --dz-cream: #f9f0e0;
+    --dz-cream-2: #f6f1e8;
+    --dz-sand: #e8ddcf;
+    --dz-gold: #a67d2b;
+    --dz-gold-lt: #cda95a;
+    --dz-gold-dp: #937100;
+    --dz-brown: #6c513f;
+    --dz-brown-lt: #846f61;
+    --dz-ink: #4f4f4f;
+    --dz-wine: #5a0f1b;
+    --dz-serif: "Ovo", Georgia, "Times New Roman", serif;
+    --dz-display: "Cinzel", Georgia, serif;
+    --dz-arabic: "Amiri", "Noto Naskh Arabic", "Geeza Pro", serif;
+}
+
+.dz-section {
+    background: var(--dz-cream);
+    padding: 64px 20px 72px;
+    font-family: var(--dz-serif);
+    color: var(--dz-brown);
+    overflow: hidden;
+}
+
+.dz-section--alt {
+    background: var(--dz-cream-2);
+}
+
+.dz-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.dz-wrap--narrow {
+    max-width: 620px;
+}
+
+/* --- headings ----------------------------------------------------------- */
+
+.dz-eyebrow {
+    font-family: var(--dz-display);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dz-gold);
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.dz-title {
+    font-family: var(--dz-serif);
+    font-size: clamp(30px, 6vw, 41px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--dz-brown);
+    text-align: center;
+    margin: 0;
+}
+
+.dz-title-ar {
+    font-family: var(--dz-arabic);
+    direction: rtl;
+    font-size: clamp(17px, 3.6vw, 21px);
+    color: var(--dz-gold);
+    text-align: center;
+    margin-top: 8px;
+    opacity: 0.85;
+}
+
+.dz-lede {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--dz-brown-lt);
+    max-width: 520px;
+    margin: 16px auto 0;
+}
+
+/* --- zellige ornament (8-pointed khatem) -------------------------------- */
+
+.dz-orn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 26px auto 40px;
+    max-width: 340px;
+}
+
+.dz-orn__rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        rgba(166, 125, 43, 0),
+        rgba(166, 125, 43, 0.55)
+    );
+}
+
+.dz-orn__rule:last-child {
+    background: linear-gradient(
+        to left,
+        rgba(166, 125, 43, 0),
+        rgba(166, 125, 43, 0.55)
+    );
+}
+
+.dz-orn__star {
+    width: 22px;
+    height: 22px;
+    flex: none;
+    color: var(--dz-gold);
+}
+
+.dz-orn--footer {
+    margin: 44px auto 0;
+}
+
+/* --- programme / timeline ----------------------------------------------- */
+
+.dz-timeline {
+    position: relative;
+    margin: 0 auto;
+    max-width: 560px;
+    padding: 4px 0;
+}
+
+.dz-timeline::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 88px;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        rgba(166, 125, 43, 0),
+        rgba(166, 125, 43, 0.45) 12%,
+        rgba(166, 125, 43, 0.45) 88%,
+        rgba(166, 125, 43, 0)
+    );
+}
+
+.dz-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    column-gap: 34px;
+    padding: 17px 0;
+}
+
+.dz-step__time {
+    font-family: var(--dz-display);
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: var(--dz-gold-dp);
+    text-align: right;
+    padding-top: 3px;
+    white-space: nowrap;
+}
+
+.dz-step__dot {
+    position: absolute;
+    left: 88px;
+    top: 24px;
+    width: 9px;
+    height: 9px;
+    margin-left: -4px;
+    border-radius: 50%;
+    background: var(--dz-cream);
+    border: 1px solid var(--dz-gold);
+}
+
+.dz-step--key .dz-step__dot {
+    background: var(--dz-gold);
+    box-shadow: 0 0 0 4px rgba(166, 125, 43, 0.16);
+}
+
+.dz-step__label {
+    font-size: 20px;
+    line-height: 1.35;
+    color: var(--dz-brown);
+}
+
+.dz-step__ar {
+    font-family: var(--dz-arabic);
+    direction: rtl;
+    unicode-bidi: isolate;
+    text-align: left;
+    font-size: 15px;
+    color: var(--dz-gold);
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.dz-step__note {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--dz-brown-lt);
+    margin-top: 5px;
+}
+
+.dz-timeline__foot {
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--dz-brown-lt);
+    margin-top: 26px;
+    font-style: italic;
+}
+
+/* --- verse -------------------------------------------------------------- */
+
+.dz-verse {
+    text-align: center;
+    padding: 6px 0 2px;
+}
+
+
+.dz-verse__ar {
+    font-family: var(--dz-arabic);
+    direction: rtl;
+    font-size: clamp(21px, 4.8vw, 29px);
+    line-height: 2.15;
+    color: var(--dz-brown);
+    max-width: 660px;
+    margin: 0 auto;
+}
+
+.dz-verse__fr {
+    font-size: clamp(15px, 3.2vw, 17px);
+    line-height: 1.85;
+    color: var(--dz-brown-lt);
+    font-style: italic;
+    max-width: 560px;
+    margin: 24px auto 0;
+}
+
+.dz-verse__ref {
+    font-family: var(--dz-display);
+    font-size: 11px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--dz-gold);
+    margin-top: 18px;
+}
+
+/* --- lieu --------------------------------------------------------------- */
+
+.dz-venue {
+    text-align: center;
+}
+
+.dz-venue__name {
+    font-family: var(--dz-display);
+    font-size: clamp(19px, 4.2vw, 24px);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dz-brown);
+    line-height: 1.4;
+}
+
+.dz-venue__addr {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--dz-brown-lt);
+    margin-top: 12px;
+}
+
+.dz-venue__landmark {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--dz-brown-lt);
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.dz-map {
+    margin: 30px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(166, 125, 43, 0.28);
+    line-height: 0;
+    box-shadow: 0 10px 30px -18px rgba(108, 81, 63, 0.5);
+}
+
+.dz-map iframe {
+    display: block;
+    width: 100%;
+    height: 320px;
+    border: 0;
+}
+
+/* --- buttons ------------------------------------------------------------ */
+
+.dz-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.dz-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 22px;
+    border: 1px solid var(--dz-gold);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--dz-gold-dp);
+    font-family: var(--dz-display);
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.dz-btn:hover,
+.dz-btn:focus-visible {
+    background: var(--dz-gold);
+    color: var(--dz-cream);
+    transform: translateY(-1px);
+}
+
+.dz-btn svg {
+    width: 15px;
+    height: 15px;
+    flex: none;
+}
+
+.dz-btn--solid {
+    background: var(--dz-gold);
+    color: var(--dz-cream);
+}
+
+.dz-btn--solid:hover,
+.dz-btn--solid:focus-visible {
+    background: var(--dz-gold-dp);
+    color: var(--dz-cream);
+}
+
+/* --- info cards --------------------------------------------------------- */
+
+.dz-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+@media (min-width: 620px) {
+    .dz-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.dz-card {
+    background: var(--dz-cream);
+    border: 1px solid rgba(166, 125, 43, 0.25);
+    border-radius: 14px;
+    padding: 30px 26px 28px;
+    text-align: center;
+}
+
+.dz-section--alt .dz-card {
+    background: rgba(255, 255, 255, 0.44);
+}
+
+.dz-card__icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 15px;
+    color: var(--dz-gold);
+}
+
+.dz-card__title {
+    font-family: var(--dz-display);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dz-brown);
+    margin-bottom: 10px;
+}
+
+.dz-card .dz-step__ar {
+    text-align: center;
+}
+
+.dz-card__body {
+    font-size: 15px;
+    line-height: 1.72;
+    color: var(--dz-brown-lt);
+}
+
+/* --- RSVP form ---------------------------------------------------------- */
+
+.dz-form {
+    margin-top: 34px;
+    text-align: left;
+}
+
+.dz-field {
+    margin-bottom: 20px;
+}
+
+.dz-field__label {
+    display: block;
+    font-family: var(--dz-display);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dz-brown);
+    margin-bottom: 8px;
+}
+
+.dz-field__hint {
+    font-family: var(--dz-serif);
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--dz-brown-lt);
+    font-style: italic;
+    margin-left: 6px;
+}
+
+.dz-input,
+.dz-select {
+    width: 100%;
+    padding: 13px 15px;
+    font-family: var(--dz-serif);
+    font-size: 16px;
+    color: var(--dz-ink);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(166, 125, 43, 0.4);
+    border-radius: 8px;
+    outline: none;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.dz-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23a67d2b' stroke-width='1.4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 11px;
+    padding-right: 38px;
+}
+
+.dz-input:focus,
+.dz-select:focus {
+    border-color: var(--dz-gold);
+    box-shadow: 0 0 0 3px rgba(166, 125, 43, 0.14);
+}
+
+.dz-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.dz-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.dz-choice {
+    position: relative;
+}
+
+.dz-choice input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.dz-choice span {
+    display: block;
+    padding: 15px 12px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--dz-brown-lt);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(166, 125, 43, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.dz-choice input:checked + span {
+    border-color: var(--dz-gold);
+    background: rgba(166, 125, 43, 0.12);
+    color: var(--dz-brown);
+}
+
+.dz-choice input:focus-visible + span {
+    box-shadow: 0 0 0 3px rgba(166, 125, 43, 0.16);
+}
+
+.dz-form__submit {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 22px;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.dz-form__alt {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--dz-brown-lt);
+    margin-top: 24px;
+}
+
+.dz-form__alt a {
+    color: var(--dz-gold-dp);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(166, 125, 43, 0.45);
+}
+
+.dz-form__status {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+    display: none;
+}
+
+.dz-form__status.is-ok {
+    display: block;
+    background: rgba(166, 125, 43, 0.12);
+    color: var(--dz-brown);
+    border: 1px solid rgba(166, 125, 43, 0.35);
+}
+
+.dz-form__status.is-err {
+    display: block;
+    background: rgba(90, 15, 27, 0.07);
+    color: var(--dz-wine);
+    border: 1px solid rgba(90, 15, 27, 0.25);
+}
+
+/* --- reveal on scroll --------------------------------------------------- */
+
+.dz-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.dz-reveal.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dz-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* --- responsive --------------------------------------------------------- */
+
+@media (max-width: 560px) {
+    .dz-section {
+        padding: 52px 18px 58px;
+    }
+
+    .dz-timeline::before {
+        left: 62px;
+    }
+
+    .dz-step {
+        grid-template-columns: 50px 1fr;
+        column-gap: 26px;
+    }
+
+    .dz-step__dot {
+        left: 62px;
+    }
+
+    .dz-step__time {
+        font-size: 13px;
+    }
+
+    .dz-step__label {
+        font-size: 18px;
+    }
+
+    .dz-map iframe {
+        height: 260px;
+    }
+
+    .dz-row,
+    .dz-choices {
+        grid-template-columns: 1fr;
+    }
+
+    .dz-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

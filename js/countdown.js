@@ -1,6 +1,9 @@
 (function () {
-    // 20 October 2026, 17:00 - matches "Guest Arrival 5 PM" on the schedule
-    var eventDate = new Date(2026, 9, 20, 17, 0, 0);
+    // 20 octobre 2026, 19h00 heure d'Algerie (UTC+1) - accueil des invites.
+    // Fixe en UTC pour que le compte a rebours soit identique depuis l'etranger.
+    var eventDate = new Date(
+        Date.UTC(2026, 9, 20, 18, 0, 0),
+    );
     var elDays =
         document.getElementById("days");
     var elHours =
@@ -34,7 +37,7 @@
         if (dist < 0) {
             document.getElementById(
                 "countdownContainer",
-            ).innerHTML = "See you there!";
+            ).innerHTML = "\u00c0 tr\u00e8s bient\u00f4t !";
             return;
         }
         var d = String(
