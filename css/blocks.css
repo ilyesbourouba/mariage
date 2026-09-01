@@ -1514,14 +1514,14 @@
     }
 }
 #rec2487446253 .t396__artboard {
-    height: 673px;
+    height: 725px;
     background-color: #f9f0e0;
 }
 #rec2487446253 .t396__filter {
-    height: 673px;
+    height: 725px;
 }
 #rec2487446253 .t396__carrier {
-    height: 673px;
+    height: 725px;
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
@@ -1531,7 +1531,7 @@
 #rec2487446253 .t396__artboard,
 #rec2487446253 .t396__filter,
 #rec2487446253 .t396__carrier {
-        height: 673px;
+        height: 725px;
     }
 #rec2487446253 .t396__filter {
     }
@@ -1543,7 +1543,7 @@
 #rec2487446253 .t396__artboard,
 #rec2487446253 .t396__filter,
 #rec2487446253 .t396__carrier {
-        height: 673px;
+        height: 725px;
     }
 #rec2487446253 .t396__filter {
     }
@@ -1555,7 +1555,7 @@
 #rec2487446253 .t396__artboard,
 #rec2487446253 .t396__filter,
 #rec2487446253 .t396__carrier {
-        height: 673px;
+        height: 725px;
     }
 #rec2487446253 .t396__filter {
     }
@@ -1567,7 +1567,7 @@
 #rec2487446253 .t396__artboard,
 #rec2487446253 .t396__filter,
 #rec2487446253 .t396__carrier {
-        height: 673px;
+        height: 725px;
     }
 #rec2487446253 .t396__filter {
     }
@@ -1577,7 +1577,7 @@
 }
 #rec2487446253 .tn-elem[data-elem-id="1772823499423"] {
     z-index: 3;
-    top: 0px;
+    top: 52px;
     left: calc(50% - 600px + 375px);
     width: 450px;
     height: auto;
@@ -1634,10 +1634,10 @@
 }
 #rec2487446253 .tn-elem[data-elem-id="1778673930481"] {
     z-index: 3;
-    top: 0px;
+    top: 52px;
     left: calc(50% - 600px + 374px);
     width: 451px;
-    height: 237px;
+    height: 84px;
 }
 #rec2487446253
     .tn-elem[data-elem-id="1778673930481"]
@@ -1645,7 +1645,8 @@
     border-radius: 0px 0px 0px 0px;
     background-image: linear-gradient(
         0turn,
-        rgba(232, 221, 207, 0) 0%,
+        rgba(249, 240, 224, 0) 0%,
+        rgba(249, 240, 224, 0.55) 55%,
         rgba(249, 240, 224, 1) 100%
     );
     border-width: var(--t396-borderwidth, 0);
@@ -1687,7 +1688,8 @@
         .tn-atom {
         background-image: linear-gradient(
             0turn,
-            rgba(232, 221, 207, 0) 0%,
+            rgba(249, 240, 224, 0) 0%,
+            rgba(249, 240, 224, 0.55) 55%,
             rgba(249, 240, 224, 1) 100%
         );
         background-color: transparent;
@@ -1698,7 +1700,7 @@
     color: #a67d2b;
     text-align: center;
     z-index: 3;
-    top: 12px;
+    top: 8px;
     left: calc(50% - 600px + 320px);
     width: 560px;
     height: auto;
@@ -1791,7 +1793,7 @@
 #rec2487446253
     .tn-elem[data-elem-id="1780167388618000002"] {
     z-index: 3;
-    top: 173px;
+    top: 225px;
     left: calc(50% - 600px + 332px);
     width: 537px;
     height: auto;
@@ -1859,7 +1861,7 @@
     color: #a67d2b;
     text-align: center;
     z-index: 3;
-    top: 73px;
+    top: 125px;
     left: calc(50% - 600px + 420px);
     width: 360px;
     height: auto;
