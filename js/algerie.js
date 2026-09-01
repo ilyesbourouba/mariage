@@ -11,9 +11,9 @@
     var WHATSAPP = "213698095449";
     var FORMSPREE = "";
 
-    /* --- date de l'événement : 20 octobre 2026, 18h00, heure d'Algérie --- */
-    var EVENT_START = "20261020T170000Z"; // 18:00 UTC+1
-    var EVENT_END = "20261021T000000Z"; // 01:00 UTC+1
+    /* --- date de l'événement : 20 octobre 2026, 16h00, heure d'Algérie --- */
+    var EVENT_START = "20261020T150000Z"; // 16:00 UTC+1
+    var EVENT_END = "20261020T210000Z"; // 22:00 UTC+1
 
     /* --- reveal on scroll --------------------------------------------- */
     function initReveal() {
@@ -113,7 +113,6 @@
         ];
         if (data.reponse !== "Avec regret, je ne pourrai pas venir") {
             lines.push("Adultes : " + (data.adultes || "0"));
-            lines.push("Enfants : " + (data.enfants || "0"));
         }
         if (data.chanson) lines.push("Chanson : " + data.chanson);
         if (data.message) lines.push("Message : " + data.message);

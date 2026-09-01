@@ -1,8 +1,8 @@
 (function () {
-    // 20 octobre 2026, 18h00 heure d'Algerie (UTC+1) - ouverture des portes.
+    // 20 octobre 2026, 16h00 heure d'Algerie (UTC+1) - ouverture des portes.
     // Fixe en UTC pour que le compte a rebours soit identique depuis l'etranger.
     var eventDate = new Date(
-        Date.UTC(2026, 9, 20, 17, 0, 0),
+        Date.UTC(2026, 9, 20, 15, 0, 0),
     );
     var elDays =
         document.getElementById("days");
