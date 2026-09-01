@@ -1,8 +1,8 @@
 (function () {
-    // 20 octobre 2026, 19h00 heure d'Algerie (UTC+1) - accueil des invites.
+    // 20 octobre 2026, 18h00 heure d'Algerie (UTC+1) - ouverture des portes.
     // Fixe en UTC pour que le compte a rebours soit identique depuis l'etranger.
     var eventDate = new Date(
-        Date.UTC(2026, 9, 20, 18, 0, 0),
+        Date.UTC(2026, 9, 20, 17, 0, 0),
     );
     var elDays =
         document.getElementById("days");
@@ -19,9 +19,14 @@
         seconds: null,
     };
     var revealed = false;
-    function flip(el, newVal) {
+    // Les secondes changent chaque seconde : avec le bascule lent de 520ms
+    // le chiffre restait invisible plus de la moitie du temps. On garde le
+    // mouvement ample pour jours/heures/minutes, rapide pour les secondes.
+    function flip(el, newVal, fast) {
         if (el.textContent === newVal)
             return;
+        var wait = fast ? 130 : 520;
+        if (fast) el.classList.add("flip-fast");
         el.classList.add("flip-out");
         setTimeout(function () {
             el.classList.remove("flip-out");
@@ -29,7 +34,7 @@
             el.textContent = newVal;
             el.offsetHeight;
             el.classList.remove("flip-in");
-        }, 520);
+        }, wait);
     }
     function tick() {
         var now = new Date();
@@ -71,7 +76,7 @@
             prev.minutes = m;
         }
         if (s !== prev.seconds) {
-            flip(elSecs, s);
+            flip(elSecs, s, true);
             prev.seconds = s;
         }
     }

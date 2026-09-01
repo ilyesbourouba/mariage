@@ -175,6 +175,9 @@
         <link rel="stylesheet" href="css/countdown.css" />
     </head>
     <body class="t-body" style="margin: 0">
+        <div class="dz-progress" aria-hidden="true">
+            <span class="dz-progress__bar"></span>
+        </div>
         <!--allrecords-->
         <div
             id="allrecords"
@@ -730,10 +733,9 @@
                                 field="tn_text_1780748008617000005">
                                 Chers parents, chers amis,
                                 <br />
-                                Les familles BOUROUBA et [NOM DE FAMILLE] ont
-                                l’honneur de vous convier à partager leur joie
-                                et à célébrer avec elles le mariage de leurs
-                                enfants.
+                                Les familles BOUROUBA et KHELFAOUI ont l’honneur
+                                de vous convier à partager leur joie et à
+                                célébrer avec elles le mariage de leurs enfants.
                             </div>
                         </div>
                         <div
@@ -853,7 +855,17 @@
                 <!-- /T396 -->
             </div>
             <section class="dz-section dz-section--alt" id="benediction">
-                <div class="dz-wrap dz-wrap--narrow dz-verse dz-reveal">
+                <span
+                    class="dz-watermark dz-watermark--tl"
+                    data-dz-parallax="0.10"
+                    aria-hidden="true"></span>
+                <span
+                    class="dz-watermark dz-watermark--br"
+                    data-dz-parallax="-0.07"
+                    aria-hidden="true"></span>
+                <div
+                    class="dz-wrap dz-wrap--narrow dz-verse dz-reveal"
+                    data-dz-parallax="0.05">
                     <p class="dz-verse__ar" lang="ar">
                         وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ
                         أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
@@ -1005,6 +1017,14 @@
                 <!-- /T396 -->
             </div>
             <section class="dz-section" id="programme">
+                <span
+                    class="dz-watermark dz-watermark--tl"
+                    data-dz-parallax="0.13"
+                    aria-hidden="true"></span>
+                <span
+                    class="dz-watermark dz-watermark--br"
+                    data-dz-parallax="-0.09"
+                    aria-hidden="true"></span>
                 <div class="dz-wrap">
                     <div class="dz-reveal">
                         <p class="dz-eyebrow">Le déroulé de la soirée</p>
@@ -1032,8 +1052,11 @@
                         <span class="dz-orn__rule"></span>
                     </div>
                     <div class="dz-timeline">
-                        <div class="dz-step dz-reveal">
-                            <div class="dz-step__time">19h00</div>
+                        <span class="dz-timeline__rail" aria-hidden="true">
+                            <span class="dz-timeline__fill"></span>
+                        </span>
+                        <div class="dz-step dz-reveal dz-reveal--left">
+                            <div class="dz-step__time">18h00</div>
                             <span
                                 class="dz-step__dot"
                                 aria-hidden="true"></span>
@@ -1050,7 +1073,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dz-step dz-step--key dz-reveal">
+                        <div
+                            class="dz-step dz-step--key dz-reveal dz-reveal--left">
+                            <div class="dz-step__time">19h00</div>
+                            <span
+                                class="dz-step__dot"
+                                aria-hidden="true"></span>
+                            <div>
+                                <div class="dz-step__label">La Fatiha</div>
+                                <div class="dz-step__ar" lang="ar">
+                                    عقد القران
+                                </div>
+                                <div class="dz-step__note">
+                                    L’acte de mariage, célébré devant vous.
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="dz-step dz-step--key dz-reveal dz-reveal--left">
                             <div class="dz-step__time">20h00</div>
                             <span
                                 class="dz-step__dot"
@@ -1067,7 +1107,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dz-step dz-step--key dz-reveal">
+                        <div
+                            class="dz-step dz-step--key dz-reveal dz-reveal--left">
                             <div class="dz-step__time">21h00</div>
                             <span
                                 class="dz-step__dot"
@@ -1084,7 +1125,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dz-step dz-reveal">
+                        <div class="dz-step dz-reveal dz-reveal--left">
                             <div class="dz-step__time">22h30</div>
                             <span
                                 class="dz-step__dot"
@@ -1094,7 +1135,7 @@
                                 <div class="dz-step__ar" lang="ar">العشاء</div>
                             </div>
                         </div>
-                        <div class="dz-step dz-reveal">
+                        <div class="dz-step dz-reveal dz-reveal--left">
                             <div class="dz-step__time">23h30</div>
                             <span
                                 class="dz-step__dot"
@@ -1112,7 +1153,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dz-step dz-reveal">
+                        <div class="dz-step dz-reveal dz-reveal--left">
                             <div class="dz-step__time">01h00</div>
                             <span
                                 class="dz-step__dot"
@@ -1127,16 +1168,21 @@
                             </div>
                         </div>
                     </div>
-                    <!-- À CONFIRMER : adapter ou supprimer la note ci-dessous -->
                     <p class="dz-timeline__foot dz-reveal">
-                        La Fatiha sera célébrée en comité familial.
-                        <br />
-                        La soirée à la salle est le moment où nous souhaitons
-                        vous savoir tous auprès de nous.
+                        Les portes ouvrent à 18h — venez tôt, la Fatiha se
+                        célèbre devant vous.
                     </p>
                 </div>
             </section>
             <section class="dz-section dz-section--alt" id="lieu">
+                <span
+                    class="dz-watermark dz-watermark--tl"
+                    data-dz-parallax="-0.08"
+                    aria-hidden="true"></span>
+                <span
+                    class="dz-watermark dz-watermark--br"
+                    data-dz-parallax="0.12"
+                    aria-hidden="true"></span>
                 <div class="dz-wrap">
                     <div class="dz-reveal">
                         <p class="dz-eyebrow">Où nous rejoindre</p>
@@ -1171,19 +1217,18 @@
                         </p>
                         <!-- À COMPLÉTER : adresse exacte de la salle -->
                         <p class="dz-venue__addr">
-                            [Rue / lotissement à compléter]
+                            117 route nationale 24 Bordj el bahri centre16000
                             <br />
-                            Réghaïa — Wilaya d’Alger
+                            Bordj el bahri — Wilaya d’Alger
                         </p>
                         <!-- À COMPLÉTER : repères pour trouver la salle -->
                         <p class="dz-venue__landmark">
-                            Repère : [à compléter — ex. en face de …, à 300 m de
-                            …]. Parking gratuit devant la salle.
+                            Parking gratuit devant la salle.
                         </p>
                         <div class="dz-actions">
                             <a
                                 class="dz-btn dz-btn--solid"
-                                href="https://www.google.com/maps/search/?api=1&amp;query=36.7865474,3.2468925"
+                                href="https://www.google.com/maps/search/?api=1&amp;query=36.7869271,3.2488546"
                                 target="_blank"
                                 rel="noopener">
                                 <svg
@@ -1206,7 +1251,7 @@
                             </a>
                             <a
                                 class="dz-btn"
-                                href="https://waze.com/ul?ll=36.7865474,3.2468925&amp;navigate=yes"
+                                href="https://waze.com/ul?ll=36.7869271,3.2488546&amp;navigate=yes"
                                 target="_blank"
                                 rel="noopener">
                                 <svg
@@ -1246,9 +1291,9 @@
                                 Ajouter au calendrier
                             </button>
                         </div>
-                        <div class="dz-map dz-reveal">
+                        <div class="dz-map dz-reveal dz-reveal--scale">
                             <iframe
-                                src="https://www.google.com/maps?q=36.7865474,3.2468925&amp;hl=fr&amp;z=16&amp;output=embed"
+                                src="https://www.google.com/maps?q=36.7866229,3.2494708&amp;hl=fr&amp;z=19&amp;output=embed"
                                 title="Carte — Salle des Fêtes Palais Layal"
                                 allowfullscreen=""
                                 loading="lazy"
@@ -1258,6 +1303,14 @@
                 </div>
             </section>
             <section class="dz-section" id="infos">
+                <span
+                    class="dz-watermark dz-watermark--tl"
+                    data-dz-parallax="0.11"
+                    aria-hidden="true"></span>
+                <span
+                    class="dz-watermark dz-watermark--br"
+                    data-dz-parallax="-0.08"
+                    aria-hidden="true"></span>
                 <div class="dz-wrap">
                     <div class="dz-reveal">
                         <p class="dz-eyebrow">Quelques détails</p>
@@ -1285,7 +1338,7 @@
                         <span class="dz-orn__rule"></span>
                     </div>
                     <div class="dz-cards">
-                        <div class="dz-card dz-reveal">
+                        <div class="dz-card dz-reveal dz-reveal--scale">
                             <div class="dz-card__icon">
                                 <svg
                                     viewBox="0 0 24 24"
@@ -1311,7 +1364,7 @@
                                 bienvenues.
                             </p>
                         </div>
-                        <div class="dz-card dz-reveal">
+                        <div class="dz-card dz-reveal dz-reveal--scale">
                             <div class="dz-card__icon">
                                 <svg
                                     viewBox="0 0 24 24"
@@ -1349,7 +1402,7 @@
                                 soit prêt pour eux.
                             </p>
                         </div>
-                        <div class="dz-card dz-reveal">
+                        <div class="dz-card dz-reveal dz-reveal--scale">
                             <div class="dz-card__icon">
                                 <svg
                                     viewBox="0 0 24 24"
@@ -1374,7 +1427,7 @@
                                 cadeaux. Rien d’autre n’est attendu.
                             </p>
                         </div>
-                        <div class="dz-card dz-reveal">
+                        <div class="dz-card dz-reveal dz-reveal--scale">
                             <div class="dz-card__icon">
                                 <svg
                                     viewBox="0 0 24 24"
@@ -1395,15 +1448,22 @@
                                 السهرة
                             </div>
                             <p class="dz-card__body">
-                                Soirée mixte, en famille. La salle vous
-                                accueille dès 19h et la fête se prolonge tard
-                                dans la nuit.
+                                Soirée en famille. La salle vous accueille dès
+                                19h et la fête se prolonge tard dans la nuit.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="dz-section dz-section--alt" id="rsvp">
+                <span
+                    class="dz-watermark dz-watermark--tl"
+                    data-dz-parallax="-0.09"
+                    aria-hidden="true"></span>
+                <span
+                    class="dz-watermark dz-watermark--br"
+                    data-dz-parallax="0.10"
+                    aria-hidden="true"></span>
                 <div class="dz-wrap dz-wrap--narrow">
                     <div class="dz-reveal">
                         <p class="dz-eyebrow">

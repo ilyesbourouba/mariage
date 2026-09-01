@@ -8,22 +8,28 @@
        FORMSPREE: endpoint https://formspree.io/f/xxxxxxx (ou autre service).
                   Laisser vide -> le formulaire bascule sur WhatsApp.
        ------------------------------------------------------------------ */
-    var WHATSAPP = "213XXXXXXXXX";
+    var WHATSAPP = "213698095449";
     var FORMSPREE = "";
 
-    /* --- date de l'événement : 20 octobre 2026, 19h00, heure d'Algérie --- */
-    var EVENT_START = "20261020T180000Z"; // 19:00 UTC+1
+    /* --- date de l'événement : 20 octobre 2026, 18h00, heure d'Algérie --- */
+    var EVENT_START = "20261020T170000Z"; // 18:00 UTC+1
     var EVENT_END = "20261021T000000Z"; // 01:00 UTC+1
 
     /* --- reveal on scroll --------------------------------------------- */
     function initReveal() {
-        var els = document.querySelectorAll(".dz-reveal");
+        var els = document.querySelectorAll(".dz-reveal, .dz-orn");
         if (!els.length) return;
 
         if (!("IntersectionObserver" in window)) {
             Array.prototype.forEach.call(els, function (el) {
                 el.classList.add("is-in");
             });
+            Array.prototype.forEach.call(
+                document.querySelectorAll(".dz-title"),
+                function (t) {
+                    t.classList.add("is-lit");
+                },
+            );
             return;
         }
 
@@ -32,14 +38,25 @@
                 entries.forEach(function (entry) {
                     if (!entry.isIntersecting) return;
                     entry.target.classList.add("is-in");
+                    var title = entry.target.querySelector(".dz-title");
+                    if (title) title.classList.add("is-lit");
                     io.unobserve(entry.target);
                 });
             },
             { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
         );
 
-        Array.prototype.forEach.call(els, function (el, i) {
-            el.style.transitionDelay = Math.min(i, 6) * 0.08 + "s";
+        /* Le décalage repart de zéro à chaque section, sinon tout ce qui
+           suit la première hérite du délai maximum. */
+        var counts = {};
+        Array.prototype.forEach.call(els, function (el) {
+            if (el.classList.contains("dz-reveal")) {
+                var sec = el.closest(".dz-section");
+                var key = (sec && sec.id) || "_";
+                counts[key] = (counts[key] || 0) + 1;
+                el.style.transitionDelay =
+                    Math.min(counts[key] - 1, 5) * 0.09 + "s";
+            }
             io.observe(el);
         });
     }
@@ -112,12 +129,9 @@
         var radios = form.querySelectorAll('input[name="reponse"]');
 
         function syncCounts() {
-            var declined = form.querySelector(
-                'input[name="reponse"]:checked',
-            );
+            var declined = form.querySelector('input[name="reponse"]:checked');
             var isNo =
-                declined &&
-                declined.value.indexOf("ne pourrai pas") !== -1;
+                declined && declined.value.indexOf("ne pourrai pas") !== -1;
             if (counts) counts.style.display = isNo ? "none" : "";
         }
 
@@ -129,8 +143,7 @@
         function say(msg, ok) {
             if (!status) return;
             status.textContent = msg;
-            status.className =
-                "dz-form__status " + (ok ? "is-ok" : "is-err");
+            status.className = "dz-form__status " + (ok ? "is-ok" : "is-err");
         }
 
         form.addEventListener("submit", function (e) {
@@ -195,8 +208,7 @@
                 .finally(function () {
                     if (btn) {
                         btn.disabled = false;
-                        btn.textContent =
-                            btn.dataset.label || "Envoyer";
+                        btn.textContent = btn.dataset.label || "Envoyer";
                     }
                 });
         });
@@ -206,8 +218,108 @@
         if (wa) wa.href = "https://wa.me/" + WHATSAPP;
     }
 
+    /* --- scroll-driven motion ------------------------------------------
+       Un seul écouteur de scroll, tout passe par requestAnimationFrame et
+       n'écrit que des transforms / hauteurs : pas de reflow en boucle.
+       -------------------------------------------------------------------- */
+    function initMotion() {
+        var reduce =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+            var fillStatic = document.querySelector(".dz-timeline__fill");
+            if (fillStatic) fillStatic.style.height = "100%";
+            Array.prototype.forEach.call(
+                document.querySelectorAll(".dz-step__dot"),
+                function (d) {
+                    d.classList.add("is-lit");
+                },
+            );
+            return;
+        }
+
+        var bar = document.querySelector(".dz-progress__bar");
+        var layers = [];
+        var rail = document.querySelector(".dz-timeline__rail");
+        var fill = document.querySelector(".dz-timeline__fill");
+        var dots = [];
+        var ticking = false;
+
+        Array.prototype.forEach.call(
+            document.querySelectorAll("[data-dz-parallax]"),
+            function (el) {
+                layers.push({
+                    el: el,
+                    speed: parseFloat(el.getAttribute("data-dz-parallax")) || 0.1,
+                });
+            },
+        );
+
+        Array.prototype.forEach.call(
+            document.querySelectorAll(".dz-step"),
+            function (step) {
+                var dot = step.querySelector(".dz-step__dot");
+                if (dot) dots.push(dot);
+            },
+        );
+
+        function frame() {
+            ticking = false;
+            var vh = window.innerHeight;
+
+            /* barre de progression */
+            if (bar) {
+                var doc = document.documentElement;
+                var max = doc.scrollHeight - vh;
+                var p = max > 0 ? doc.scrollTop / max : 0;
+                bar.style.transform =
+                    "scaleX(" + Math.min(1, Math.max(0, p)) + ")";
+            }
+
+            /* calques en parallaxe */
+            for (var i = 0; i < layers.length; i++) {
+                var l = layers[i];
+                var r = l.el.getBoundingClientRect();
+                if (r.bottom < -240 || r.top > vh + 240) continue;
+                var centred = r.top + r.height / 2 - vh / 2;
+                l.el.style.transform =
+                    "translate3d(0," + (-centred * l.speed).toFixed(1) + "px,0)";
+            }
+
+            /* remplissage de la frise + points allumés */
+            if (rail && fill) {
+                var rr = rail.getBoundingClientRect();
+                if (rr.bottom > -200 && rr.top < vh + 200) {
+                    var line = vh * 0.55;
+                    var prog = (line - rr.top) / rr.height;
+                    prog = Math.min(1, Math.max(0, prog));
+                    fill.style.height = (prog * 100).toFixed(2) + "%";
+                    var lit = rr.top + rr.height * prog;
+                    for (var d = 0; d < dots.length; d++) {
+                        var dr = dots[d].getBoundingClientRect();
+                        dots[d].classList.toggle(
+                            "is-lit",
+                            dr.top + dr.height / 2 <= lit,
+                        );
+                    }
+                }
+            }
+        }
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(frame);
+        }
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        frame();
+    }
+
     function init() {
         initReveal();
+        initMotion();
         initCalendar();
         initForm();
     }
